@@ -1,9 +1,4 @@
-import calculator._
+val x = Map(1 -> 2)
 
-val x = Var(10)
-val y = Var(10)
-val z = Signal{ x() + y()}
 
-z()
-x() = 20
-z()
+x map {case (k,v) => (k,v +1)}

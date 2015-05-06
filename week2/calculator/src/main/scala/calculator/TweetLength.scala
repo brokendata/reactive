@@ -12,11 +12,10 @@ object TweetLength {
 
   def colorForRemainingCharsCount(remainingCharsCount: Signal[Int]): Signal[String] = {
    Signal{
-     val sink = remainingCharsCount()
-     sink match {
-       case n if n > 15 => "green"
-       case n if n > 0 && n < 15 => "orange"
-       case _ => "red"
+      remainingCharsCount() match {
+       case n if n >= 15 => "green"
+       case n if n >= 0 && n <= 14 => "orange"
+       case n if n < 0 => "red"
      }
    }
   }
